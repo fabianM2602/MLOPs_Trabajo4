@@ -8,7 +8,8 @@ WORKDIR /app
 COPY . .
 
 # Instalar dependencias necesarias
-RUN pip install --no-cache-dir fastapi uvicorn scikit-learn joblib numpy pydantic
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Exponer el puerto en el que correrá la app
 EXPOSE 8000
